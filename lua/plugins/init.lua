@@ -1,0 +1,22 @@
+return{
+	{ 'nvim-telescope/telescope.nvim', tag = '0.1.4'},
+	'nvim-lua/plenary.nvim',
+	{ 'BurntSushi/ripgrep', tag = '13.0.0' },
+	'nvim-telescope/telescope-fzf-native.nvim',
+	{ 'nvim-treesitter/nvim-treesitter', tag = '0.9.1' },
+	'nvim-treesitter/nvim-treesitter-textobjects',
+	'nvim-tree/nvim-web-devicons',
+	"rebelot/kanagawa.nvim",
+	"mbbill/undotree",
+	"tpope/vim-fugitive",
+	"tpope/vim-surround",
+	{'williamboman/mason.nvim'},
+	{'williamboman/mason-lspconfig.nvim'},
+	{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+	{'neovim/nvim-lspconfig'},
+	{'hrsh7th/cmp-nvim-lsp'},
+	{'hrsh7th/nvim-cmp'},
+	{'L3MON4D3/LuaSnip'},
+	 "hrsh7th/cmp-buffer",
+	 "stevearc/conform.nvim"
+}
