@@ -1,18 +1,26 @@
 local lsp_zero = require("lsp-zero")
 
-lsp_zero.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+lsp_zero.on_attach(function() end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver" },
+	ensure_installed = {
+		"astro",
+		"cssls",
+		"emmet_language_server",
+		"lua_ls",
+		"rubocop",
+		"ruby_ls",
+		"tailwindcss",
+		"tsserver",
+	},
 	handlers = {
 		lsp_zero.default_setup,
+		cssls = function()
+			require("lspconfig").cssls.setup({})
+		end,
 		lua_ls = function()
-			require("lsp-config").lua_ls.setup({
+			require("lspconfig").lua_ls.setup({
 				settings = {
 					Lua = {
 						runtime = {
@@ -39,11 +47,18 @@ require("mason-lspconfig").setup({
 				},
 			})
 		end,
+		tsserver = function()
+			require("lspconfig").tsserver.setup({
+				on_attach = function(client)
+					client.resolved_capabilities.document_formatting = false
+				end,
+			})
+		end,
 	},
 })
 
 local cmp = require("cmp")
-local cmp_action = require("lsp-zero").cmp_action()
+require("lsp-zero").cmp_action()
 
 cmp.setup({
 	sources = {
@@ -56,13 +71,29 @@ cmp.setup({
 
 		-- Ctrl+Space to trigger completion menu
 		["<C-Space>"] = cmp.mapping.complete(),
-
-		-- Navigate between snippet placeholder
-		["<C-f>"] = cmp_action.luasnip_jump_forward(),
-		["<C-b>"] = cmp_action.luasnip_jump_backward(),
-
-		-- Scroll up and down in the completion documentation
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
 	}),
+})
+
+local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+null_ls.setup({
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+					-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+					vim.lsp.buf.format({ async = false })
+				end,
+			})
+		end
+	end,
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettierd,
+	},
 })

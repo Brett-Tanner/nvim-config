@@ -18,5 +18,5 @@ return{
 	{'hrsh7th/nvim-cmp'},
 	{'L3MON4D3/LuaSnip'},
 	 "hrsh7th/cmp-buffer",
-	 "stevearc/conform.nvim"
+	 "nvimtools/none-ls.nvim"
 }
