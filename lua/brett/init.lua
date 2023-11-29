@@ -6,7 +6,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.opt.smartindent = true
+vim.bo.autoindent = true
+vim.bo.smartindent = true
 
 vim.opt.wrap = true
 
@@ -23,3 +24,10 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
+
+vim.opt.hidden = true
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})

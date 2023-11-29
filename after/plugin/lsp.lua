@@ -67,7 +67,7 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		-- `Enter` key to confirm completion
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 
 		-- Ctrl+Space to trigger completion menu
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -95,5 +95,6 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.diagnostics.haml_lint,
 	},
 })
