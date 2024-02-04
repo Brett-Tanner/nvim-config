@@ -2,6 +2,7 @@ local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function() end)
 
+local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
@@ -17,10 +18,10 @@ require("mason-lspconfig").setup({
 	handlers = {
 		lsp_zero.default_setup,
 		cssls = function()
-			require("lspconfig").cssls.setup({})
+			lspconfig.cssls.setup({})
 		end,
 		lua_ls = function()
-			require("lspconfig").lua_ls.setup({
+			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
 						runtime = {
@@ -47,8 +48,16 @@ require("mason-lspconfig").setup({
 				},
 			})
 		end,
+		pyright = function()
+			lspconfig.pyright.setup({})
+		end,
+		ruby_ls = function()
+			lspconfig.ruby_ls.setup({
+				cmd = { "/Users/brett/.rbenv/shims/ruby-lsp" },
+			})
+		end,
 		tsserver = function()
-			require("lspconfig").tsserver.setup({
+			lspconfig.tsserver.setup({
 				on_attach = function(client)
 					client.resolved_capabilities.document_formatting = false
 				end,
@@ -96,5 +105,15 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.diagnostics.haml_lint,
+		null_ls.builtins.diagnostics.markdownlint_cli2,
+		null_ls.builtins.diagnostics.mypy,
+		null_ls.builtins.diagnostics.pylint.with({
+			extra_args = {
+				"--disable=missing-module-docstring",
+				"--disable=missing-class-docstring",
+				"--disable=missing-function-docstring",
+				"--disable=import-error",
+			},
+		}),
 	},
 })
