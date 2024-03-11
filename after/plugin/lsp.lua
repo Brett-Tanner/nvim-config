@@ -13,10 +13,18 @@ require("mason-lspconfig").setup({
 		"rubocop",
 		"ruby_ls",
 		"tailwindcss",
-		"tsserver",
+	},
+	flags = {
+		allow_incremental_sync = false,
+		debounce_text_changes = 150,
 	},
 	handlers = {
 		lsp_zero.default_setup,
+		biome = function()
+			lspconfig.biome.setup({
+				root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc", ".git"),
+			})
+		end,
 		cssls = function()
 			lspconfig.cssls.setup({})
 		end,
@@ -54,13 +62,6 @@ require("mason-lspconfig").setup({
 		ruby_ls = function()
 			lspconfig.ruby_ls.setup({
 				cmd = { "/Users/brett/.rbenv/shims/ruby-lsp" },
-			})
-		end,
-		tsserver = function()
-			lspconfig.tsserver.setup({
-				on_attach = function(client)
-					client.resolved_capabilities.document_formatting = false
-				end,
 			})
 		end,
 	},
@@ -102,18 +103,11 @@ null_ls.setup({
 		end
 	end,
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.diagnostics.haml_lint,
 		null_ls.builtins.diagnostics.markdownlint_cli2,
-		null_ls.builtins.diagnostics.mypy,
-		null_ls.builtins.diagnostics.pylint.with({
-			extra_args = {
-				"--disable=missing-module-docstring",
-				"--disable=missing-class-docstring",
-				"--disable=missing-function-docstring",
-				"--disable=import-error",
-			},
-		}),
+		null_ls.builtins.diagnostics.rubocop,
+		null_ls.builtins.formatting.biome,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.stylua,
 	},
 })
