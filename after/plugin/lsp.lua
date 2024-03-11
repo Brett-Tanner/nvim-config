@@ -1,17 +1,17 @@
 local lsp_zero = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp_zero.on_attach(function() end)
 
-local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup({
+	PATH = "prepend",
 	ensure_installed = {
-		"astro",
+		"biome",
 		"cssls",
 		"emmet_language_server",
 		"lua_ls",
 		"rubocop",
-		"ruby_ls",
 		"tailwindcss",
 	},
 	flags = {
@@ -20,50 +20,48 @@ require("mason-lspconfig").setup({
 	},
 	handlers = {
 		lsp_zero.default_setup,
-		biome = function()
-			lspconfig.biome.setup({
-				root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc", ".git"),
-			})
-		end,
-		cssls = function()
-			lspconfig.cssls.setup({})
-		end,
-		lua_ls = function()
-			lspconfig.lua_ls.setup({
-				settings = {
-					Lua = {
-						runtime = {
-							-- Tell the language server which version of Lua you're using
-							-- (most likely LuaJIT in the case of Neovim)
-							version = "LuaJIT",
-						},
-						diagnostics = {
-							-- Get the language server to recognize the `vim` global
-							globals = {
-								"vim",
-								"require",
-							},
-						},
-						workspace = {
-							-- Make the server aware of Neovim runtime files
-							library = vim.api.nvim_get_runtime_file("", true),
-						},
-						-- Do not send telemetry data containing a randomized but unique identifier
-						telemetry = {
-							enable = false,
+		lspconfig.biome.setup({
+			root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc", ".git"),
+		}),
+		lspconfig.cssls.setup({}),
+		lspconfig.lua_ls.setup({
+			settings = {
+				Lua = {
+					runtime = {
+						-- Tell the language server which version of Lua you're using
+						-- (most likely LuaJIT in the case of Neovim)
+						version = "LuaJIT",
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = {
+							"vim",
+							"require",
 						},
 					},
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
 				},
-			})
-		end,
-		pyright = function()
-			lspconfig.pyright.setup({})
-		end,
-		ruby_ls = function()
-			lspconfig.ruby_ls.setup({
-				cmd = { "/Users/brett/.rbenv/shims/ruby-lsp" },
-			})
-		end,
+			},
+		}),
+		lspconfig.pyright.setup({}),
+		lspconfig.rubocop.setup({}),
+		lspconfig.tailwindcss.setup({
+			experimental = {
+				classRegex = {
+					"%\\w+([^\\s]*)",
+					"\\.([^\\.]*)",
+					':class\\s*=>\\s*"([^"]*)',
+					'class:\\s+"([^"]*)',
+				},
+			},
+		}),
 	},
 })
 
@@ -95,8 +93,6 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
 					vim.lsp.buf.format({ async = false })
 				end,
 			})
@@ -108,6 +104,7 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.rubocop,
 		null_ls.builtins.formatting.stylua,
 	},
 })
