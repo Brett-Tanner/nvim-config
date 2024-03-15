@@ -12,7 +12,9 @@ require("mason-lspconfig").setup({
 		"emmet_language_server",
 		"lua_ls",
 		"rubocop",
+		"stimulus_ls",
 		"tailwindcss",
+		"tsserver",
 	},
 	flags = {
 		allow_incremental_sync = false,
@@ -50,8 +52,10 @@ require("mason-lspconfig").setup({
 				},
 			},
 		}),
+		lspconfig.marksman.setup({}),
 		lspconfig.pyright.setup({}),
 		lspconfig.rubocop.setup({}),
+		lspconfig.stimulus_ls.setup({ }),
 		lspconfig.tailwindcss.setup({
 			experimental = {
 				classRegex = {
@@ -62,6 +66,7 @@ require("mason-lspconfig").setup({
 				},
 			},
 		}),
+		lspconfig.tsserver.setup({}),
 	},
 })
 
