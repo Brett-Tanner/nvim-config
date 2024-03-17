@@ -3,7 +3,6 @@ require("tailwind-sorter").setup({
 	on_save_pattern = {
 		"*.haml",
 		"*.html",
-		"*.css",
 		"*.js",
 		"*.jsx",
 		"*.tsx",
