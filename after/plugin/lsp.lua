@@ -55,7 +55,7 @@ require("mason-lspconfig").setup({
 		lspconfig.marksman.setup({}),
 		lspconfig.pyright.setup({}),
 		lspconfig.rubocop.setup({}),
-		lspconfig.stimulus_ls.setup({ }),
+		lspconfig.stimulus_ls.setup({}),
 		lspconfig.tailwindcss.setup({
 			experimental = {
 				classRegex = {
@@ -104,11 +104,13 @@ null_ls.setup({
 		end
 	end,
 	sources = {
+		null_ls.builtins.diagnostics.djlint,
 		null_ls.builtins.diagnostics.haml_lint,
 		null_ls.builtins.diagnostics.markdownlint_cli2,
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.djlint,
 		null_ls.builtins.formatting.rubocop,
 		null_ls.builtins.formatting.stylua,
 	},
