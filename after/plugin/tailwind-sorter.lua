@@ -4,7 +4,6 @@ require("tailwind-sorter").setup({
 		"*.haml",
 		"*.html",
 		"*.css",
-		"*.htmldjango",
 		"*.js",
 		"*.jsx",
 		"*.tsx",

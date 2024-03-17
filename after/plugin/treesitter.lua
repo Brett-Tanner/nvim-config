@@ -20,3 +20,7 @@ require("nvim-treesitter.configs").setup({
 		additional_vim_regex_highlighting = false,
 	},
 })
+
+local parsers = require("nvim-treesitter.parsers")
+local parser_config = parsers.get_parser_configs()
+parser_config.htmldjango.filetype_to_parsername = "html"
