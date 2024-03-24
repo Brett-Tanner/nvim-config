@@ -107,6 +107,7 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.djlint,
 		null_ls.builtins.diagnostics.haml_lint,
 		null_ls.builtins.diagnostics.markdownlint_cli2,
+		null_ls.builtins.diagnostics.markuplint,
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.black,
