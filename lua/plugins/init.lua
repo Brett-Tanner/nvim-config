@@ -14,6 +14,8 @@ return {
 	"rebelot/kanagawa.nvim",
 	"tpope/vim-fugitive",
 	"tpope/vim-surround",
+	"tpope/vim-rails",
+	"tpope/vim-bundler",
 	{ "BurntSushi/ripgrep", tag = "13.0.0" },
 	{ "Exafunction/codeium.vim", event = "BufEnter" },
 	{ "L3MON4D3/LuaSnip" },
