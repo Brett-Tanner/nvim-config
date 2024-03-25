@@ -112,6 +112,9 @@ null_ls.setup({
 		null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djlint,
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = { "css", "scss", "less", "html", "vue", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
+		}),
 		null_ls.builtins.formatting.rubocop,
 		null_ls.builtins.formatting.stylua,
 	},
