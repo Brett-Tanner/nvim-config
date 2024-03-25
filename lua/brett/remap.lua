@@ -1,6 +1,6 @@
 -- General
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit to containing directory", remap = true })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Exp, { desc = "Exit to containing directory", remap = true })
 
 -- Linting
 vim.cmd(
@@ -19,3 +19,6 @@ vim.keymap.set("n", "<C-h>", "<C-W>h", { desc = "Switch to left window", remap =
 vim.keymap.set("n", "<C-j>", "<C-W>j", { desc = "Switch to below window", remap = true })
 vim.keymap.set("n", "<C-k>", "<C-W>k", { desc = "Switch to above window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-W>l", { desc = "Switch to right window", remap = true })
+
+-- nvim-rails
+vim.keymap.set("n", "<leader>rn", vim.cmd.Runner, { desc = "Run current Rails file", remap = true })
