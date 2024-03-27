@@ -12,6 +12,7 @@ return {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"nvimtools/none-ls.nvim",
 	"rebelot/kanagawa.nvim",
+	"simrat39/rust-tools.nvim",
 	"tpope/vim-fugitive",
 	"tpope/vim-surround",
 	"tpope/vim-rails",

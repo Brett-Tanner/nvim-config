@@ -16,6 +16,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "6ed787740a3b275b748328eb2dc7dd22dae1c064" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
   "ripgrep": { "branch": "master", "commit": "af6b6c543b224d348a8876f0c06245d9ea7929c5" },
+  "rust-tools.nvim": { "branch": "master", "commit": "676187908a1ce35ffcd727c654ed68d851299d3e" },
   "tailwind-sorter.nvim": { "branch": "main", "commit": "3bde5890457e6272550c8b853c13bfb57457f47f" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9ef21b2e6bb6ebeaf349a0781745549bbb870d27" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },

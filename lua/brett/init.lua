@@ -42,3 +42,11 @@ vim.treesitter.language.register("markdown", "mdx")
 
 -- Stop vim-rails killing my syntax highlighting in yaml files
 vim.api.nvim_create_autocmd("FileType", { pattern = "eruby.yaml", command = "set filetype=yaml" })
+
+-- Run rustfmt on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.rs" },
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})

@@ -55,6 +55,15 @@ require("mason-lspconfig").setup({
 		lspconfig.marksman.setup({}),
 		lspconfig.pyright.setup({}),
 		lspconfig.rubocop.setup({}),
+		lspconfig.rust_analyzer.setup({
+			settings = {
+				["rust-analyzer"] = {
+					checkOnSave = {
+						command = "clippy",
+					},
+				},
+			},
+		}),
 		lspconfig.stimulus_ls.setup({}),
 		lspconfig.tailwindcss.setup({
 			experimental = {
@@ -113,7 +122,18 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djlint,
 		null_ls.builtins.formatting.prettierd.with({
-			filetypes = { "css", "scss", "less", "html", "vue", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
+			filetypes = {
+				"css",
+				"scss",
+				"less",
+				"html",
+				"vue",
+				"yaml",
+				"markdown",
+				"markdown.mdx",
+				"graphql",
+				"handlebars",
+			},
 		}),
 		null_ls.builtins.formatting.rubocop,
 		null_ls.builtins.formatting.stylua,
