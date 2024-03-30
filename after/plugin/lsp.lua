@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"emmet_language_server",
 		"lua_ls",
+		"gopls",
 		"rubocop",
 		"stimulus_ls",
 		"tailwindcss",
@@ -53,6 +54,7 @@ require("mason-lspconfig").setup({
 			},
 		}),
 		lspconfig.marksman.setup({}),
+		lspconfig.gopls.setup({}),
 		lspconfig.pyright.setup({}),
 		lspconfig.rubocop.setup({}),
 		lspconfig.rust_analyzer.setup({
@@ -117,10 +119,22 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.haml_lint,
 		null_ls.builtins.diagnostics.markdownlint_cli2,
 		null_ls.builtins.diagnostics.markuplint,
+		null_ls.builtins.diagnostics.revive.with({
+			args = {
+				"--config",
+				"revive.toml",
+				"-formatter",
+				"json",
+				"./...",
+			},
+		}),
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djlint,
+		null_ls.builtins.formatting.gofumpt,
+		null_ls.builtins.formatting.goimports,
+		null_ls.builtins.formatting.goimports_reviser,
 		null_ls.builtins.formatting.prettierd.with({
 			filetypes = {
 				"css",
