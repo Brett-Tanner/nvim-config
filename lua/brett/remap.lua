@@ -44,6 +44,9 @@ vim.keymap.set("n", "gR", function()
 end)
 
 -- neotest
+vim.keymap.set("n", "<leader>nt", function()
+	require("neotest").run.run(vim.fn.expand("%"))
+end)
 vim.keymap.set("n", "<leader>tr", function()
 	require("neotest").watch.watch()
 end)
