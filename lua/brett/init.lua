@@ -50,3 +50,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.lsp.buf.format()
 	end,
 })
+
+-- Don't use codeium in Go while I'm learning
+vim.api.nvim_create_autocmd("FileType", { pattern = "go", command = "Codeium Disable" })
