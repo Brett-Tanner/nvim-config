@@ -59,3 +59,12 @@ end)
 vim.keymap.set("n", "<leader>to", function()
 	require("neotest").output.open()
 end)
+
+-- codeium
+vim.keymap.set("n", "<leader>ce", function()
+	vim.cmd("CodeiumEnable")
+end)
+
+vim.keymap.set("n", "<leader>cd", function()
+	vim.cmd("CodeiumDisable")
+end)
