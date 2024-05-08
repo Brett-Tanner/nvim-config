@@ -1,6 +1,14 @@
 -- General
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Exp, { desc = "Exit to containing directory", remap = true })
+vim.keymap.set("i", "<Left>", "<Nop>", { desc = "Disable left arrow", remap = true })
+vim.keymap.set("i", "<Right>", "<Nop>", { desc = "Disable right arrow", remap = true })
+vim.keymap.set("i", "<Up>", "<Nop>", { desc = "Disable up arrow", remap = true })
+vim.keymap.set("i", "<Down>", "<Nop>", { desc = "Disable down arrow", remap = true })
+vim.keymap.set("n", "<Left>", "<Nop>", { desc = "Disable left arrow", remap = true })
+vim.keymap.set("n", "<Right>", "<Nop>", { desc = "Disable right arrow", remap = true })
+vim.keymap.set("n", "<Up>", "<Nop>", { desc = "Disable up arrow", remap = true })
+vim.keymap.set("n", "<Down>", "<Nop>", { desc = "Disable down arrow", remap = true })
 
 -- Linting
 vim.cmd(
