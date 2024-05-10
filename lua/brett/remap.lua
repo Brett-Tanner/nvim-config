@@ -9,7 +9,6 @@ vim.keymap.set("n", "<Left>", "<Nop>", { desc = "Disable left arrow", remap = tr
 vim.keymap.set("n", "<Right>", "<Nop>", { desc = "Disable right arrow", remap = true })
 vim.keymap.set("n", "<Up>", "<Nop>", { desc = "Disable up arrow", remap = true })
 vim.keymap.set("n", "<Down>", "<Nop>", { desc = "Disable down arrow", remap = true })
-vim.keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "Disable search highlight", remap = true })
 
 -- Linting
 vim.cmd(
@@ -77,3 +76,6 @@ end)
 vim.keymap.set("n", "<leader>cd", function()
 	vim.cmd("CodeiumDisable")
 end)
+
+-- grug-far
+vim.keymap.set("n", "<leader>rg", vim.cmd.GrugFar)

@@ -44,4 +44,5 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{ "MagicDuck/grug-far.nvim" },
 }
