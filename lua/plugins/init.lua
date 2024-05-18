@@ -25,7 +25,7 @@ return {
 	{ "hrsh7th/nvim-cmp" },
 	{ "neovim/nvim-lspconfig" },
 	{ "nvim-telescope/telescope.nvim" },
-	{ "nvim-treesitter/nvim-treesitter" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "williamboman/mason.nvim" },
 	{
