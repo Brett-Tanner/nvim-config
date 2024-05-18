@@ -45,4 +45,6 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{ "MagicDuck/grug-far.nvim" },
+	{ "lewis6991/gitsigns.nvim" },
+	{ "folke/which-key.nvim", event = "VimEnter" },
 }
