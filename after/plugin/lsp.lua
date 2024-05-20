@@ -56,7 +56,9 @@ require("mason-lspconfig").setup({
 		lspconfig.marksman.setup({}),
 		lspconfig.gopls.setup({}),
 		lspconfig.pyright.setup({}),
-		lspconfig.rubocop.setup({}),
+		lspconfig.rubocop.setup({
+			command = { "rbenv", "exec", "rubocop", "--lsp" },
+		}),
 		lspconfig.rust_analyzer.setup({
 			settings = {
 				["rust-analyzer"] = {
