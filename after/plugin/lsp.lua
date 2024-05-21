@@ -105,6 +105,14 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
+	ensure_installed = {
+		"gofumpt",
+		"goimports",
+		"goimports-reviser",
+		"revive",
+		"stylua",
+		"markdownlint_cli2",
+	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
