@@ -109,9 +109,10 @@ null_ls.setup({
 		"gofumpt",
 		"goimports",
 		"goimports-reviser",
+		"markdownlint_cli2",
+		"prettierd",
 		"revive",
 		"stylua",
-		"markdownlint_cli2",
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
