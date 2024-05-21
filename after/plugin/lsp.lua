@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"emmet_language_server",
 		"lua_ls",
+		"marksman",
 		"gopls",
 		"rubocop",
 		"stimulus_ls",
