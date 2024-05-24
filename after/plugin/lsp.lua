@@ -129,6 +129,7 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.djlint,
 		null_ls.builtins.diagnostics.haml_lint.with({
+			env = { RUBYOPT = "-W0" },
 			command = {
 				"bundle",
 				"exec",
