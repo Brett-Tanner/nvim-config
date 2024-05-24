@@ -105,6 +105,7 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
+	debug = true,
 	ensure_installed = {
 		"gofumpt",
 		"goimports",
@@ -128,7 +129,13 @@ null_ls.setup({
 	end,
 	sources = {
 		null_ls.builtins.diagnostics.djlint,
-		null_ls.builtins.diagnostics.haml_lint,
+		null_ls.builtins.diagnostics.haml_lint.with({
+			command = {
+				"bundle",
+				"exec",
+				"haml-lint",
+			},
+		}),
 		null_ls.builtins.diagnostics.markdownlint_cli2,
 		null_ls.builtins.diagnostics.markuplint,
 		null_ls.builtins.diagnostics.revive.with({
