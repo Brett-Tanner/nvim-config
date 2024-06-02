@@ -46,5 +46,10 @@ return {
 	},
 	{ "MagicDuck/grug-far.nvim" },
 	{ "lewis6991/gitsigns.nvim" },
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 	{ "folke/which-key.nvim", event = "VimEnter" },
 }
