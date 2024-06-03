@@ -1,5 +1,6 @@
 -- General
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.keymap.set("n", "<leader>pv", vim.cmd.Oil, { desc = "Exit to containing directory", remap = true })
 vim.keymap.set("n", "<Left>", "<Nop>", { desc = "Disable left arrow", remap = true })
 vim.keymap.set("n", "<Right>", "<Nop>", { desc = "Disable right arrow", remap = true })
