@@ -28,9 +28,46 @@ rt.setup({
 })
 
 -- Color scheme
-local time = os.date("*t")
-if time.hour < 9 or time.hour > 17 then
-	vim.cmd([[colorscheme kanagawa-dragon]])
-else
-	vim.cmd([[colorscheme kanagawa-wave]])
+function Light_or_dark()
+	local time = os.date("*t")
+	local dark = {
+		"catppuccin-macchiato",
+		"everforest",
+		"gruvbox-material",
+		"kanagawa-dragon",
+		"kanagawa-wave",
+		"nord",
+		"rose-pine-main",
+		"tokyonight-night",
+		"tokyonight-moon",
+	}
+	local light = {
+		"catppuccin-frappe",
+		"catppuccin-latte",
+		"everforest",
+		"gruvbox-material",
+		"kanagawa-day",
+		"kanagawa-lotus",
+		"rose-pine-dawn",
+		"rose-pine-moon",
+		"tokyonight-day",
+		"tokyonight-storm",
+	}
+	if time.hour < 10 or time.hour > 16 then
+		vim.cmd("set background=dark")
+		return dark
+	else
+		vim.cmd("set background=light")
+		return light
+	end
 end
+
+function Select_random_colorscheme()
+	local colorschemes = Light_or_dark()
+	local random_index = math.random(1, #colorschemes)
+	local random_colorscheme = colorschemes[random_index]
+	vim.cmd("colorscheme " .. random_colorscheme)
+	vim.notify("Applied colorscheme: " .. random_colorscheme)
+end
+
+Select_random_colorscheme()

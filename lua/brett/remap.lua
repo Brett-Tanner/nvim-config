@@ -71,3 +71,12 @@ vim.keymap.set(
 	{ desc = "Go to type definition", remap = true }
 )
 vim.keymap.set("n", "<leader>ar", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", remap = true })
+
+-- colorschemes
+
+vim.keymap.set(
+	"n",
+	"<leader>cs",
+	"<cmd>lua Select_random_colorscheme()<cr>",
+	{ desc = "Select random colorscheme", remap = true }
+)
