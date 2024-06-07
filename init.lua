@@ -46,7 +46,6 @@ function Light_or_dark()
 		"catppuccin-latte",
 		"everforest",
 		"gruvbox-material",
-		"kanagawa-day",
 		"kanagawa-lotus",
 		"rose-pine-dawn",
 		"rose-pine-moon",
