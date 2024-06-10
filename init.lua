@@ -65,9 +65,6 @@ function Select_random_colorscheme()
 	local colorschemes = Light_or_dark()
 	local random_index = math.random(1, #colorschemes)
 	local random_colorscheme = colorschemes[random_index]
-	if vim.loop.os_uname().sysname == "Linux" then
-		vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
-	end
 	vim.cmd("colorscheme " .. random_colorscheme)
 	vim.notify("Applied colorscheme: " .. random_colorscheme)
 end
