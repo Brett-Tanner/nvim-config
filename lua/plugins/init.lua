@@ -18,19 +18,14 @@ return {
 	"tpope/vim-rails",
 	"tpope/vim-bundler",
 	{ "BurntSushi/ripgrep" },
-	{ "Exafunction/codeium.vim", event = "BufEnter" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/nvim-cmp" },
 	{
-		"hrsh7th/nvim-cmp",
-		opts = function(_, opts)
-			opts.sources = opts.sources or {}
-			table.insert(opts.sources, {
-				name = "lazydev",
-				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-			})
-		end,
+		"Exafunction/codeium.vim",
+		commit = "289eb72",
+		event = "BufEnter",
 	},
 	{ "neovim/nvim-lspconfig" },
 	{ "nvim-telescope/telescope.nvim" },
