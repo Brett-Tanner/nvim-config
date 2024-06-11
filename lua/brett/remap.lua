@@ -80,3 +80,6 @@ vim.keymap.set(
 	"<cmd>lua Select_random_colorscheme()<cr>",
 	{ desc = "Select random colorscheme", remap = true }
 )
+
+-- fugitive (git)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status", remap = true })
