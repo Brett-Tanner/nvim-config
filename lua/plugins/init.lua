@@ -53,6 +53,7 @@ return {
 		"stevearc/oil.nvim",
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		commit = "80eb2d6719649ea597b4c14a98f66d38960fd89c",
 	},
 	{ "folke/which-key.nvim", event = "VimEnter" },
 	{
