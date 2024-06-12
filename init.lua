@@ -32,6 +32,8 @@ function Light_or_dark()
 	local time = os.date("*t")
 	local dark = {
 		"catppuccin-macchiato",
+		"dracula",
+		"dracula-soft",
 		"everforest",
 		"gruvbox-material",
 		"kanagawa-dragon",

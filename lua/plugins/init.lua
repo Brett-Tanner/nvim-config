@@ -107,4 +107,5 @@ return {
 			require("kitty-scrollback").setup()
 		end,
 	},
+	{ "Mofiqul/dracula.nvim" },
 }
