@@ -83,3 +83,7 @@ vim.keymap.set(
 
 -- fugitive (git)
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status", remap = true })
+
+-- tailwind-tools
+vim.keymap.set("n", "<leader>tc", vim.cmd.TailwindConcealToggle, { desc = "Toggle tailwind concealer", remap = true })
+vim.keymap.set("n", "<leader>ts", vim.cmd.TailwindSort, { desc = "Sort tailwind classes", remap = true })
