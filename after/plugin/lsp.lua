@@ -27,7 +27,15 @@ require("mason-lspconfig").setup({
 		lspconfig.biome.setup({
 			root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc", ".git"),
 		}),
-		lspconfig.cssls.setup({}),
+		lspconfig.cssls.setup({
+			settings = {
+				css = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+			},
+		}),
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
